@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>補助金サーチャー — デモ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+    background: #0f1117;
+    color: #e8eaf0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px;
+  }
+
+  .badge {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: clamp(22px, 5vw, 34px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 40%, #fcd34d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  /* Progress */
+  .progress-bar {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+
+  .prog-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    position: relative;
+  }
+
+  .prog-step::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #2a2d3e;
+    z-index: 0;
+  }
+
+  .prog-step:last-child::after { display: none; }
+
+  .prog-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #2a2d3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4b5563;
+    background: #0f1117;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+
+  .prog-step.active .prog-dot {
+    border-color: #f59e0b;
+    color: #f59e0b;
+  }
+
+  .prog-step.done .prog-dot {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: white;
+  }
+
+  .prog-label {
+    font-size: 10px;
+    color: #4b5563;
+    white-space: nowrap;
+    transition: color 0.3s;
+  }
+
+  .prog-step.active .prog-label { color: #f59e0b; }
+  .prog-step.done .prog-label { color: #9ca3af; }
+
+  /* Cards */
+  .step-card {
+    width: 100%;
+    max-width: 560px;
+    background: #1a1d27;
+    border: 1px solid #2a2d3e;
+    border-radius: 16px;
+    padding: 28px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .step-card.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  /* Option buttons */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .options-grid.cols3 { grid-template-columns: 1fr 1fr 1fr; }
+  .options-grid.cols1 { grid-template-columns: 1fr; }
+
+  .opt-btn {
+    background: #0f1117;
+    border: 1.5px solid #2a2d3e;
+    border-radius: 12px;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .opt-btn .opt-icon { font-size: 22px; display: block; margin-bottom: 6px; }
+  .opt-btn:hover { border-color: #f59e0b; color: #fcd34d; }
+  .opt-btn.selected { border-color: #f59e0b; background: #f59e0b15; color: #fcd34d; }
+
+  .next-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: opacity 0.2s;
+    display: none;
+  }
+
+  .next-btn.show { display: block; }
+  .next-btn:hover { opacity: 0.9; }
+
+  /* Loading */
+  .loading-wrap {
+    width: 100%;
+    max-width: 560px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 0;
+  }
+
+  .loading-wrap.show { display: flex; }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #2a2d3e;
+    border-top-color: #f59e0b;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text {
+    font-size: 14px;
+    color: #9ca3af;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .loading-steps-list { list-style: none; margin-top: 8px; }
+
+  .loading-steps-list li {
+    font-size: 13px;
+    color: #4b5563;
+    padding: 3px 0;
+    transition: color 0.3s;
+  }
+
+  .loading-steps-list li.lit { color: #f59e0b; }
+  .loading-steps-list li.done-li { color: #9ca3af; }
+
+  /* Results */
+  .results {
+    width: 100%;
+    max-width: 560px;
+    display: none;
+  }
+
+  .results.show { display: block; }
+
+  .results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .results-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .results-count {
+    font-size: 12px;
+    color: #f59e0b;
+    font-weight: 600;
+  }
+
+  .hojo-card {
+    background: #1a1d27;
+    border: 1px solid #2a2d3e;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .hojo-card.highlight { border-color: #f59e0b66; }
+
+  .hojo-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .hojo-name {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .hojo-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tag-hot { background: #ef444420; color: #f87171; }
+  .tag-ok { background: #22c55e20; color: #4ade80; }
+  .tag-check { background: #6366f120; color: #a5b4fc; }
+
+  .hojo-amounts {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .hojo-amount-item { }
+  .hojo-amount-label { font-size: 10px; color: #6b7280; margin-bottom: 2px; }
+  .hojo-amount-val { font-size: 18px; font-weight: 800; color: #fcd34d; }
+  .hojo-amount-val span { font-size: 11px; font-weight: 400; color: #9ca3af; margin-left: 2px; }
+
+  .hojo-desc {
+    font-size: 13px;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .hojo-haneda {
+    background: #f59e0b12;
+    border: 1px solid #f59e0b33;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #fcd34d;
+    line-height: 1.5;
+  }
+
+  .hojo-haneda strong { color: #f59e0b; }
+
+  .hojo-deadline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  .deadline-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ef4444;
+    flex-shrink: 0;
+  }
+
+  .total-box {
+    background: linear-gradient(135deg, #f59e0b15, #ef444415);
+    border: 1px solid #f59e0b44;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .total-label { font-size: 12px; color: #9ca3af; margin-bottom: 6px; }
+  .total-amount { font-size: 32px; font-weight: 800; color: #fcd34d; }
+  .total-note { font-size: 12px; color: #6b7280; margin-top: 6px; line-height: 1.5; }
+
+  .cta-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+
+  .restart-btn2 {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #2a2d3e;
+    border-radius: 12px;
+    color: #6b7280;
+    font-size: 13px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .restart-btn2:hover { border-color: #f59e0b; color: #fcd34d; }
+</style>
+</head>
+<body>
+
+<div class="badge">HANEDA AI BASE — Demo</div>
+<h1>使える補助金を<br>AIが無料で探します</h1>
+<p class="subtitle">業種・規模・やりたいことを選ぶだけで、<br>申請できる補助金を最大額付きで一覧表示します。</p>
+
+<!-- Progress -->
+<div class="progress-bar" id="progressBar">
+  <div class="prog-step active" id="prog1">
+    <div class="prog-dot">1</div>
+    <div class="prog-label">業種</div>
+  </div>
+  <div class="prog-step" id="prog2">
+    <div class="prog-dot">2</div>
+    <div class="prog-label">規模</div>
+  </div>
+  <div class="prog-step" id="prog3">
+    <div class="prog-dot">3</div>
+    <div class="prog-label">目的</div>
+  </div>
+  <div class="prog-step" id="prog4">
+    <div class="prog-dot">4</div>
+    <div class="prog-label">結果</div>
+  </div>
+</div>
+
+<!-- Step 1: 業種 -->
+<div class="step-card active" id="step1">
+  <div class="step-title">業種を選んでください</div>
+  <div class="step-desc">あなたの会社に近いものを選択してください。</div>
+  <div class="options-grid">
+    <button class="opt-btn" onclick="select(1, '配送・運送業', this)">
+      <span class="opt-icon">🚛</span>配送・運送業
+    </button>
+    <button class="opt-btn" onclick="select(1, '建築・工事業', this)">
+      <span class="opt-icon">🏗️</span>建築・工事業
+    </button>
+    <button class="opt-btn" onclick="select(1, '製造業', this)">
+      <span class="opt-icon">🏭</span>製造業
+    </button>
+    <button class="opt-btn" onclick="select(1, '小売・飲食業', this)">
+      <span class="opt-icon">🏪</span>小売・飲食業
+    </button>
+    <button class="opt-btn" onclick="select(1, 'サービス業', this)">
+      <span class="opt-icon">💼</span>サービス業
+    </button>
+    <button class="opt-btn" onclick="select(1, 'その他', this)">
+      <span class="opt-icon">📋</span>その他
+    </button>
+  </div>
+  <button class="next-btn" id="next1" onclick="nextStep(2)">次へ →</button>
+</div>
+
+<!-- Step 2: 規模 -->
+<div class="step-card" id="step2">
+  <div class="step-title">従業員数を教えてください</div>
+  <div class="step-desc">補助金の上限額が変わります。</div>
+  <div class="options-grid cols1">
+    <button class="opt-btn" onclick="select(2, '1〜5人', this)">1〜5人（個人事業主・小規模）</button>
+    <button class="opt-btn" onclick="select(2, '6〜20人', this)">6〜20人（小規模企業）</button>
+    <button class="opt-btn" onclick="select(2, '21〜50人', this)">21〜50人（中小企業）</button>
+    <button class="opt-btn" onclick="select(2, '51人以上', this)">51人以上（中堅企業）</button>
+  </div>
+  <button class="next-btn" id="next2" onclick="nextStep(3)">次へ →</button>
+</div>
+
+<!-- Step 3: 目的 -->
+<div class="step-card" id="step3">
+  <div class="step-title">何をしたいですか？</div>
+  <div class="step-desc">複数選んでもOKです。</div>
+  <div class="options-grid" id="purposeGrid">
+    <button class="opt-btn" onclick="selectMulti(this, 'AIツール・システム導入')">
+      <span class="opt-icon">🤖</span>AIツール・<br>システム導入
+    </button>
+    <button class="opt-btn" onclick="selectMulti(this, 'ホームページ制作')">
+      <span class="opt-icon">🌐</span>ホームページ<br>制作・改修
+    </button>
+    <button class="opt-btn" onclick="selectMulti(this, '設備・機械の導入')">
+      <span class="opt-icon">⚙️</span>設備・機械<br>の導入
+    </button>
+    <button class="opt-btn" onclick="selectMulti(this, '販路拡大・広告')">
+      <span class="opt-icon">📣</span>販路拡大・<br>広告宣伝
+    </button>
+    <button class="opt-btn" onclick="selectMulti(this, '人材採用・育成')">
+      <span class="opt-icon">👥</span>人材採用・<br>育成
+    </button>
+    <button class="opt-btn" onclick="selectMulti(this, '業務効率化・自動化')">
+      <span class="opt-icon">⚡</span>業務効率化・<br>自動化
+    </button>
+  </div>
+  <button class="next-btn" id="next3" onclick="showLoading()">補助金を検索する 🔍</button>
+</div>
+
+<!-- Loading -->
+<div class="loading-wrap" id="loadingWrap">
+  <div class="spinner"></div>
+  <div class="loading-text">
+    AIが補助金データベースを検索中です…
+    <ul class="loading-steps-list" id="loadingList">
+      <li id="ls1">📋 業種・規模に合う補助金を絞り込み中...</li>
+      <li id="ls2">💰 最新の補助金額・締切を確認中...</li>
+      <li id="ls3">🎯 申請条件との照合中...</li>
+      <li id="ls4">✅ 結果を整理中...</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Results -->
+<div class="results" id="results"></div>
+
+<script>
+const answers = { industry: '', size: '', purposes: [] };
+
+function select(step, val, btn) {
+  const card = document.getElementById('step' + step);
+  card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  if (step === 1) answers.industry = val;
+  if (step === 2) answers.size = val;
+  document.getElementById('next' + step).classList.add('show');
+}
+
+function selectMulti(btn, val) {
+  btn.classList.toggle('selected');
+  if (btn.classList.contains('selected')) {
+    if (!answers.purposes.includes(val)) answers.purposes.push(val);
+  } else {
+    answers.purposes = answers.purposes.filter(v => v !== val);
+  }
+  const hasSelection = answers.purposes.length > 0;
+  document.getElementById('next3').classList.toggle('show', hasSelection);
+}
+
+function nextStep(step) {
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+  updateProgress(step);
+}
+
+function updateProgress(step) {
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('prog' + i);
+    el.classList.remove('active', 'done');
+    if (i < step) { el.classList.add('done'); el.querySelector('.prog-dot').textContent = '✓'; }
+    else if (i === step) el.classList.add('active');
+    else el.querySelector('.prog-dot').textContent = i;
+  }
+}
+
+function showLoading() {
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('loadingWrap').classList.add('show');
+  updateProgress(4);
+
+  const items = ['ls1','ls2','ls3','ls4'];
+  items.forEach((id, i) => {
+    setTimeout(() => {
+      if (i > 0) {
+        const prev = document.getElementById(items[i-1]);
+        prev.classList.remove('lit');
+        prev.classList.add('done-li');
+        prev.textContent = '✓ ' + prev.textContent.replace(/^.*? /, '');
+      }
+      document.getElementById(id).classList.add('lit');
+    }, i * 700);
+  });
+
+  setTimeout(() => {
+    document.getElementById('loadingWrap').classList.remove('show');
+    showResults();
+  }, 3200);
+}
+
+function showResults() {
+  const res = document.getElementById('results');
+  res.classList.add('show');
+
+  const list = buildResults();
+  const totalMax = list.reduce((sum, r) => sum + r.maxRaw, 0);
+  const totalStr = totalMax >= 10000000
+    ? Math.round(totalMax / 10000000) + '千万円'
+    : Math.round(totalMax / 10000) + '万円';
+
+  let html = `
+    <div class="results-header">
+      <div class="results-title">検索結果</div>
+      <div class="results-count">${list.length}件 該当しました</div>
+    </div>
+  `;
+
+  list.forEach(r => {
+    html += `
+      <div class="hojo-card ${r.highlight ? 'highlight' : ''}">
+        <div class="hojo-card-top">
+          <div class="hojo-name">${r.name}</div>
+          <div class="hojo-tag ${r.tagClass}">${r.tag}</div>
+        </div>
+        <div class="hojo-amounts">
+          <div class="hojo-amount-item">
+            <div class="hojo-amount-label">最大補助額</div>
+            <div class="hojo-amount-val">${r.max}<span>円</span></div>
+          </div>
+          <div class="hojo-amount-item">
+            <div class="hojo-amount-label">補助率</div>
+            <div class="hojo-amount-val">${r.rate}<span></span></div>
+          </div>
+        </div>
+        <div class="hojo-desc">${r.desc}</div>
+        ${r.haneda ? `<div class="hojo-haneda">💡 <strong>HANEDA AI BASE との関連:</strong> ${r.haneda}</div>` : ''}
+        <div class="hojo-deadline"><div class="deadline-dot"></div>締切目安: ${r.deadline}</div>
+      </div>
+    `;
+  });
+
+  html += `
+    <div class="total-box">
+      <div class="total-label">合計 最大受給可能額</div>
+      <div class="total-amount">${totalStr}</div>
+      <div class="total-note">※ 重複申請の可否は補助金ごとに異なります<br>無料相談でどれが一番使いやすいか確認できます</div>
+    </div>
+    <button class="cta-btn">📞 無料相談でこの補助金を活用する</button>
+    <button class="restart-btn2" onclick="restart()">🔄 別の条件で検索する</button>
+  `;
+
+  res.innerHTML = html;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildResults() {
+  const { industry, size, purposes } = answers;
+  const isSmall = size === '1〜5人' || size === '6〜20人';
+  const wantsIT = purposes.includes('AIツール・システム導入') || purposes.includes('業務効率化・自動化');
+  const wantsWeb = purposes.includes('ホームページ制作');
+  const wantsSales = purposes.includes('販路拡大・広告') || purposes.includes('ホームページ制作');
+  const wantsEquip = purposes.includes('設備・機械の導入');
+  const isManufacturing = industry === '製造業';
+
+  const list = [];
+
+  if (wantsIT) {
+    list.push({
+      name: 'IT導入補助金 2026',
+      tag: '★ 最注目',
+      tagClass: 'tag-hot',
+      max: isSmall ? '450万' : '450万',
+      maxRaw: 4500000,
+      rate: '最大2/3',
+      desc: 'ソフトウェア・ITツール・AIシステムの導入費用を補助。クラウドサービスの月額費用も最長2年分が対象になります。',
+      haneda: 'HANEDA AI BASEが提供する日報AIツール・業務自動化システムがこの補助金の対象になります。導入費用の最大2/3を補助してもらえます。',
+      deadline: '2026年7〜8月（年複数回募集）',
+      highlight: true,
+    });
+  }
+
+  if (wantsSales || isSmall) {
+    list.push({
+      name: '小規模事業者持続化補助金',
+      tag: '申請しやすい',
+      tagClass: 'tag-ok',
+      max: isSmall ? '200万' : '50万',
+      maxRaw: isSmall ? 2000000 : 500000,
+      rate: '最大3/4',
+      desc: '販路開拓・集客のための費用を補助。ホームページ制作・チラシ・展示会出展・広告費などが対象です。',
+      haneda: wantsWeb ? 'HP・LP制作サービスがこの補助金の対象です。制作費用の最大3/4を補助してもらえます。' : null,
+      deadline: '2026年6月（年4回募集）',
+      highlight: wantsWeb,
+    });
+  }
+
+  if (wantsEquip && isManufacturing) {
+    list.push({
+      name: 'ものづくり補助金',
+      tag: '製造業向け',
+      tagClass: 'tag-check',
+      max: '1,250万',
+      maxRaw: 12500000,
+      rate: '最大2/3',
+      desc: '製造業の革新的な設備投資・システム構築・AI活用などを支援。機械装置費・クラウドシステム導入費が対象。',
+      haneda: 'AI業務効率化ツールの導入がこの補助金の対象になる場合があります。事業計画書の作成支援も行います。',
+      deadline: '2026年8月（年複数回）',
+      highlight: false,
+    });
+  }
+
+  if (purposes.includes('人材採用・育成')) {
+    list.push({
+      name: 'キャリアアップ助成金',
+      tag: '雇用関連',
+      tagClass: 'tag-check',
+      max: '57万',
+      maxRaw: 570000,
+      rate: '対象経費の一部',
+      desc: '非正規雇用から正社員転換、賃金アップなどの取り組みに対して支給される助成金です。',
+      haneda: null,
+      deadline: '通年受付',
+      highlight: false,
+    });
+  }
+
+  if (wantsIT || purposes.includes('業務効率化・自動化')) {
+    list.push({
+      name: '東京都 中小企業デジタル化支援助成金',
+      tag: '都内限定',
+      tagClass: 'tag-ok',
+      max: '200万',
+      maxRaw: 2000000,
+      rate: '最大2/3',
+      desc: '東京都内の中小企業がデジタル化・AI導入を行う際の費用を助成。大田区の企業も対象です。',
+      haneda: 'IT導入補助金と併用できる場合があります。HANEDA AI BASEのサービスが対象になります。',
+      deadline: '2026年9月（予定）',
+      highlight: false,
+    });
+  }
+
+  return list;
+}
+
+function restart() {
+  answers.industry = '';
+  answers.size = '';
+  answers.purposes = [];
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('results').innerHTML = '';
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.next-btn').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.loading-steps-list li').forEach((li, i) => {
+    li.classList.remove('lit', 'done-li');
+    const texts = [
+      '📋 業種・規模に合う補助金を絞り込み中...',
+      '💰 最新の補助金額・締切を確認中...',
+      '🎯 申請条件との照合中...',
+      '✅ 結果を整理中...'
+    ];
+    li.textContent = texts[i];
+  });
+  nextStep(1);
+  document.getElementById('step1').classList.add('active');
+  updateProgress(1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
