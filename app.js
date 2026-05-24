@@ -128,6 +128,100 @@ main.innerHTML = `
   </div>
 </section>
 
+
+<!-- Industry AI Tab -->
+<section class="industry-tab" id="industry-tab">
+  <div class="container">
+    <div class="industry-tab-head reveal">
+      <div class="section-eyebrow">INDUSTRY × AI</div>
+      <h2 class="section-title">業種別 AI 活用メニュー</h2>
+      <p class="section-lead">あなたの業種を選んでください。具体的に何が変わるかをご確認いただけます。</p>
+    </div>
+
+    <div class="itab-nav reveal">
+      <button class="itab-btn active" data-tab="unso">🚛 運送・物流業</button>
+      <button class="itab-btn" data-tab="kensetsu">🏗️ 建設・リフォーム業</button>
+      <button class="itab-btn" data-tab="shigyo">🏛️ 士業</button>
+    </div>
+
+    <div class="itab-panels">
+
+      <div class="itab-panel active" data-panel="unso">
+        <div class="itab-kv">
+          <div class="itab-kv-left">
+            <h3 class="itab-panel-title">運送・物流業の<br />AIで変わること</h3>
+            <p class="itab-panel-lead">日報・アルコールチェック・配送管理など、毎日の繰り返し作業を大幅に削減できます。LINEだけで完結するので現場でもすぐ使えます。</p>
+            <p class="itab-case">📌 相模石油：配車計画AI化で担当者の16時間/日の作業がほぼゼロに</p>
+            <a href="#contact" class="btn btn-primary">運送業の導入を相談する</a>
+          </div>
+          <div class="itab-kv-right">
+            <div class="itab-stat-cards">
+              <div class="itab-stat"><span class="itab-stat-num">-80<small>%</small></span><span class="itab-stat-label">日報作成時間</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">0<small>件</small></span><span class="itab-stat-label">紙の記録ミス</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">-15<small>%</small></span><span class="itab-stat-label">配送コスト</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="itab-items">
+          <div class="itab-item"><div class="itab-item-tag">日報</div><div class="itab-item-body"><strong>LINEで30秒入力 → 日報・点呼記録を自動生成</strong><br /><span>手書き廃止・スマホだけで完結。IT知識不要。</span></div><div class="itab-item-badge">時間 <b>-80%</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">法令対応</div><div class="itab-item-body"><strong>アルコールチェック記録のデジタル化・法令対応</strong><br /><span>2023年義務化に完全対応。監査リスクをゼロに。</span></div><div class="itab-item-badge">紙管理 <b>ゼロ</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">配送最適化</div><div class="itab-item-body"><strong>AIルート最適化で燃料・配送コストを削減</strong><br /><span>日本郵便の事例では再配達率が20%削減。</span></div><div class="itab-item-badge">コスト <b>-15%</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">仕分け</div><div class="itab-item-body"><strong>画像AIで仕分け・品質チェックを自動化</strong><br /><span>佐川急便の事例では作業時間40%短縮・精度99.5%以上。</span></div><div class="itab-item-badge">作業 <b>-40%</b></div></div>
+        </div>
+      </div>
+
+      <div class="itab-panel" data-panel="kensetsu">
+        <div class="itab-kv">
+          <div class="itab-kv-left">
+            <h3 class="itab-panel-title">建設・リフォーム業の<br />AIで変わること</h3>
+            <p class="itab-panel-lead">写真を撮るだけで報告書が完成。見積書もAIが初稿を作成。現場の安全管理もカメラが自動検知。現場担当者の事務負担を一気に削減します。</p>
+            <p class="itab-case">📌 大手建設法人：許認可書類の作成工数を70%削減</p>
+            <a href="#contact" class="btn btn-primary">建設業の導入を相談する</a>
+          </div>
+          <div class="itab-kv-right">
+            <div class="itab-stat-cards">
+              <div class="itab-stat"><span class="itab-stat-num">1/3<small>以下</small></span><span class="itab-stat-label">書類作成時間</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">-70<small>%</small></span><span class="itab-stat-label">許認可書類工数</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">即時<small></small></span><span class="itab-stat-label">安全装備検知</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="itab-items">
+          <div class="itab-item"><div class="itab-item-tag">報告書</div><div class="itab-item-body"><strong>現場写真を送るだけで工事報告書を自動生成</strong><br /><span>スマホで撮影 → LINEで送信 → 報告書PDF完成。</span></div><div class="itab-item-badge">作成時間 <b>1/3以下</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">見積書</div><div class="itab-item-body"><strong>工事内容を入力するだけで見積書ドラフトを自動作成</strong><br /><span>過去データから学習。週数時間の見積作業を大幅削減。</span></div><div class="itab-item-badge">見積工数 <b>大幅削減</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">安全管理</div><div class="itab-item-body"><strong>AIカメラで安全装備の未着用・危険行動を即検知</strong><br /><span>ヒヤリハット記録を自動化。コンプライアンス対応も。</span></div><div class="itab-item-badge">検知 <b>リアルタイム</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">議事録</div><div class="itab-item-body"><strong>打合せの議事録・報告書をAIが自動生成・共有</strong><br /><span>会議後の書き起こし作業がゼロに。</span></div><div class="itab-item-badge">事務作業 <b>削減</b></div></div>
+        </div>
+      </div>
+
+      <div class="itab-panel" data-panel="shigyo">
+        <div class="itab-kv">
+          <div class="itab-kv-left">
+            <h3 class="itab-panel-title">士業（行政書士・税理士など）の<br />AIで変わること</h3>
+            <p class="itab-panel-lead">申請書・補助金書類の初稿作成、定型問い合わせへの自動対応。手を動かすべき仕事に集中できる環境をつくります。</p>
+            <p class="itab-case">📌 中小事務所：月400時間 → 50時間（88%削減）</p>
+            <a href="#contact" class="btn btn-primary">士業の導入を相談する</a>
+          </div>
+          <div class="itab-kv-right">
+            <div class="itab-stat-cards">
+              <div class="itab-stat"><span class="itab-stat-num">-70<small>%</small></span><span class="itab-stat-label">書類作成工数</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">30<small>分</small></span><span class="itab-stat-label">事業計画書ドラフト</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">24h<small></small></span><span class="itab-stat-label">Bot自動対応</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="itab-items">
+          <div class="itab-item"><div class="itab-item-tag">申請書</div><div class="itab-item-body"><strong>許認可・補助金申請書のドラフトをAIが自動生成</strong><br /><span>初稿作成の時間を60〜70%削減。確認・修正に集中できる。</span></div><div class="itab-item-badge">書類作成 <b>-70%</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">補助金</div><div class="itab-item-body"><strong>補助金申請の事業計画書ドラフトを30分以内に作成</strong><br /><span>2〜3時間かかっていた作業が30分に短縮。</span></div><div class="itab-item-badge">2〜3時間 → <b>30分</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">問い合わせ</div><div class="itab-item-body"><strong>定型的な問い合わせをチャットBotが24時間自動対応</strong><br /><span>「料金は？」「必要書類は？」を自動回答。電話が減る。</span></div><div class="itab-item-badge">対応時間 <b>大幅削減</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">書類整理</div><div class="itab-item-body"><strong>紙資料・PDFをOCRでデータ化し自動分類・検索</strong><br /><span>書類整理がほぼ自動化。必要な書類がすぐ見つかる。</span></div><div class="itab-item-badge">整理作業 <b>ほぼ自動</b></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Numbers -->
 <section class="numbers" id="numbers">
   <div class="container">
@@ -762,5 +856,16 @@ form?.addEventListener('submit', (e) => {
 form?.querySelectorAll('[data-field] input, [data-field] textarea').forEach(input => {
   input.addEventListener('input', () => {
     input.closest('[data-field]').classList.remove('invalid');
+  });
+});
+
+// ====== Industry tab ======
+document.querySelectorAll('.itab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.tab;
+    document.querySelectorAll('.itab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.itab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.itab-panel[data-panel="${key}"]`).classList.add('active');
   });
 });

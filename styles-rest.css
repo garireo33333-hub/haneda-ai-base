@@ -1,3 +1,153 @@
+/* ============ Industry Tab (C pattern) ============ */
+.industry-tab{
+  background:#fff;
+  padding:100px 0;
+}
+.industry-tab-head{margin-bottom:48px}
+
+.itab-nav{
+  display:flex;gap:8px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+.itab-btn{
+  padding:12px 24px;
+  border-radius:100px;
+  font-size:15px;font-weight:600;
+  border:2px solid var(--line);
+  background:#fff;
+  color:var(--text-soft);
+  cursor:pointer;
+  transition:all .2s;
+}
+.itab-btn:hover{
+  border-color:var(--cyan);
+  color:var(--cyan-2);
+}
+.itab-btn.active{
+  background:var(--navy);
+  border-color:var(--navy);
+  color:#fff;
+}
+
+.itab-panels{position:relative}
+.itab-panel{display:none}
+.itab-panel.active{display:block}
+
+.itab-kv{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+  background:var(--bg-soft);
+  border-radius:var(--radius-lg);
+  padding:48px;
+  margin-bottom:24px;
+}
+.itab-panel-title{
+  font-size:clamp(20px,2.5vw,28px);
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:16px;
+  line-height:1.35;
+}
+.itab-panel-lead{
+  font-size:15px;
+  color:var(--text-soft);
+  line-height:1.8;
+  margin-bottom:20px;
+}
+.itab-case{
+  font-size:13px;
+  color:var(--text-soft);
+  background:rgba(201,168,76,.1);
+  border-left:3px solid var(--gold);
+  padding:10px 14px;
+  border-radius:0 8px 8px 0;
+  margin:0 0 24px;
+  line-height:1.6;
+}
+
+.itab-stat-cards{
+  display:flex;flex-direction:column;gap:16px;
+}
+.itab-stat{
+  display:flex;align-items:center;gap:20px;
+  background:#fff;
+  border-radius:14px;
+  padding:20px 24px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);
+}
+.itab-stat-num{
+  font-family:"Inter",sans-serif;
+  font-size:36px;font-weight:800;
+  color:var(--cyan-2);
+  line-height:1;
+  white-space:nowrap;
+}
+.itab-stat-num small{
+  font-size:16px;font-weight:600;margin-left:2px;
+}
+.itab-stat-label{
+  font-size:14px;color:var(--text-soft);font-weight:500;
+}
+
+.itab-items{
+  display:flex;flex-direction:column;gap:12px;
+}
+.itab-item{
+  display:flex;align-items:center;gap:16px;
+  padding:18px 24px;
+  background:var(--bg-soft);
+  border-radius:14px;
+  border:1px solid var(--line);
+  transition:box-shadow .2s;
+}
+.itab-item:hover{
+  box-shadow:var(--shadow-sm);
+}
+.itab-item-tag{
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  color:var(--cyan-2);
+  background:rgba(0,119,182,.08);
+  border-radius:6px;
+  padding:4px 10px;
+  white-space:nowrap;
+  flex-shrink:0;
+  min-width:60px;
+  text-align:center;
+}
+.itab-item-body{
+  flex:1;
+  font-size:14px;
+  line-height:1.65;
+  color:var(--text);
+}
+.itab-item-body span{
+  color:var(--text-soft);
+  font-size:13px;
+}
+.itab-item-badge{
+  font-size:13px;
+  color:#fff;
+  background:var(--cyan-2);
+  border-radius:20px;
+  padding:5px 14px;
+  white-space:nowrap;
+  flex-shrink:0;
+  font-weight:500;
+}
+.itab-item-badge b{font-weight:800;}
+
+@media(max-width:768px){
+  .itab-kv{grid-template-columns:1fr;padding:28px 24px;gap:32px;}
+  .itab-stat-cards{flex-direction:row;flex-wrap:wrap;}
+  .itab-stat{flex:1;min-width:120px;flex-direction:column;text-align:center;gap:8px;}
+  .itab-item{flex-wrap:wrap;}
+  .itab-item-badge{align-self:flex-start;}
+}
+
 /* ============ Profile ============ */
 .profile{
   background:linear-gradient(180deg,#0D1B2A 0%,#152B45 100%);
