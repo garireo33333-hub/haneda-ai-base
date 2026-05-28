@@ -191,7 +191,7 @@
 .profile-name-block{margin-bottom:20px}
 .profile-role{font-size:12px;letter-spacing:.18em;color:#7DD8FF;font-weight:600;text-transform:uppercase;margin-bottom:8px}
 .profile-name{font-family:"Inter","Noto Sans JP",sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em}
-.profile-name-roman{display:block;font-family:"Inter",sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.04em;margin-top:3px}
+.profile-name-roman{display:block;font-family:"Inter",sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-top:4px}
 .profile-name small{display:block;font-size:13px;color:rgba(255,255,255,.55);font-weight:500;margin-top:6px;letter-spacing:0}
 
 .profile-facts{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)}
