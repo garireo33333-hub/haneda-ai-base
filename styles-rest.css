@@ -506,8 +506,8 @@ details.faq-item[open] .faq-answer{animation:faqOpen .2s ease}
 .contact-right{display:flex;flex-direction:column}
 .line-form-banner{
   display:flex;align-items:center;gap:14px;
-  padding:16px 20px;margin-bottom:4px;
-  background:#06C755;border-radius:14px;
+  padding:16px 24px;margin-bottom:4px;
+  background:#06C755;border-radius:999px;
   color:#fff;text-decoration:none;
   transition:background .2s,transform .2s;
 }
