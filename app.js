@@ -599,32 +599,32 @@ main.innerHTML = `
       <div class="timeline">
         <div class="timeline-item reveal d1">
           <div class="timeline-period">学歴</div>
-          <h4 class="timeline-title">福井工業高等専門学校 卒業</h4>
+          <h4 class="timeline-title">福井工業高等専門学校</h4>
           <div class="timeline-org">工学系の基礎を実践ベースで習得</div>
         </div>
         <div class="timeline-item reveal d2">
           <div class="timeline-period">2017年</div>
-          <div class="timeline-org">株式会社SUBARU</div>
-          <h4 class="timeline-title">自動車エンジンの研究開発</h4>
+          <h4 class="timeline-title">株式会社SUBARU</h4>
+          <div class="timeline-org">自動車エンジンの研究開発</div>
           <p class="timeline-desc">大手メーカーの開発現場で、品質と数字に向き合う仕事を経験。ものづくりの現場感覚を養う。</p>
         </div>
         <div class="timeline-item reveal d3">
           <div class="timeline-period">2019年</div>
-          <div class="timeline-org">CrossGroup株式会社</div>
-          <h4 class="timeline-title">マーケティング事業部 部長</h4>
+          <h4 class="timeline-title">CrossGroup株式会社</h4>
+          <div class="timeline-org">マーケティング事業部 部長</div>
           <p class="timeline-desc">投資教育Webコンテンツのマーケを統括。SEO・LP・アフィリエイト等を一気通貫で運用。</p>
           <span class="timeline-highlight">★ 統括売上 28億円</span>
         </div>
         <div class="timeline-item reveal d2">
           <div class="timeline-period">2023年</div>
-          <div class="timeline-org">株式会社RIZAP</div>
-          <h4 class="timeline-title">デジタル広告 事業責任者</h4>
+          <h4 class="timeline-title">株式会社RIZAP</h4>
+          <div class="timeline-org">デジタル広告 事業責任者</div>
           <p class="timeline-desc">RIZAP / Chocozap 両事業の Web 広告を担当。大規模予算での運用と検証を経験。</p>
         </div>
         <div class="timeline-item reveal d3">
           <div class="timeline-period">現在</div>
-          <div class="timeline-org">OrganicGroup株式会社</div>
-          <h4 class="timeline-title">ECモール / CRM / 新規事業 / AIDX事業 責任者</h4>
+          <h4 class="timeline-title">OrganicGroup株式会社</h4>
+          <div class="timeline-org">ECモール / CRM / 新規事業 / AIDX事業 責任者</div>
           <p class="timeline-desc">複数事業を横断し、AIを使った業務改革（AIDX）を実践。本業で培ったノウハウを、大田区の中小企業に還元します。</p>
         </div>
       </div>
