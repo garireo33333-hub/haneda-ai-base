@@ -620,12 +620,15 @@ main.innerHTML = `
           <h4 class="timeline-title">株式会社RIZAP</h4>
           <div class="timeline-org">デジタル広告 事業責任者</div>
           <p class="timeline-desc">RIZAP / Chocozap 両事業の Web 広告を担当。大規模予算での運用と検証を経験。</p>
+          <span class="timeline-highlight">★ 統括売上 7億円</span>
         </div>
         <div class="timeline-item reveal d3">
           <div class="timeline-period">現在</div>
           <h4 class="timeline-title">OrganicGroup株式会社</h4>
           <div class="timeline-org">ECモール / CRM / 新規事業 / AIDX事業 責任者</div>
           <p class="timeline-desc">複数事業を横断し、AIを使った業務改革（AIDX）を実践。本業で培ったノウハウを、大田区の中小企業に還元します。</p>
+          <span class="timeline-highlight">★ 統括売上 20億円</span>
+          <span class="timeline-highlight">★ 支援企業数 8社</span>
         </div>
       </div>
     </div>
