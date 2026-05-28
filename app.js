@@ -721,20 +721,21 @@ main.innerHTML = `
         </div>
       </div>
 
-      <a href="https://line.me/ti/p/K5vraowyPS" target="_blank" rel="noopener" class="line-form-banner reveal d1">
-        <span class="line-form-icon">
-          <svg width="26" height="26" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M24 4C12.95 4 4 12.27 4 22.45c0 5.49 2.67 10.39 6.87 13.73-.3 1.11-1.1 4.03-1.26 4.66-.2.79.29 1.59 1.08 1.59.18 0 .36-.05.53-.14 0 0 5.03-2.97 7.09-4.19.87.13 1.76.2 2.69.2 11.05 0 20-8.27 20-18.45S35.05 4 24 4z"/></svg>
-        </span>
-        <span class="line-form-text">
-          <span class="line-form-title">LINEで相談する</span>
-          <span class="line-form-sub">LINEのほうが早く返信できます</span>
-        </span>
-        <svg class="line-form-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <div class="contact-right reveal d1">
+        <a href="https://line.me/ti/p/K5vraowyPS" target="_blank" rel="noopener" class="line-form-banner">
+          <span class="line-form-icon">
+            <img src="images/line-icon.png" alt="LINE" width="28" height="28" />
+          </span>
+          <span class="line-form-text">
+            <span class="line-form-title">LINEで相談する</span>
+            <span class="line-form-sub">LINEのほうが早く返信できます</span>
+          </span>
+          <svg class="line-form-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
 
-      <div class="line-form-divider"><span>または、フォームでのお問い合わせ</span></div>
+        <div class="line-form-divider"><span>または、フォームでのお問い合わせ</span></div>
 
-      <form class="contact-form reveal d1" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label>会社名 <span class="opt">任意</span></label>
@@ -784,6 +785,7 @@ main.innerHTML = `
           <p>24時間以内に、ご記入いただいたメールアドレス宛にご連絡いたします。<br />お急ぎの場合は、お電話でもご対応いたしますのでお気軽にお知らせください。</p>
         </div>
       </form>
+      </div>
     </div>
   </div>
 </section>

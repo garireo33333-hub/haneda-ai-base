@@ -502,6 +502,7 @@ details.faq-item[open] .faq-answer{animation:faqOpen .2s ease}
 }
 
 /* ============ LINE form banner ============ */
+.contact-right{display:flex;flex-direction:column}
 .line-form-banner{
   display:flex;align-items:center;gap:14px;
   padding:16px 20px;margin-bottom:4px;
@@ -510,7 +511,8 @@ details.faq-item[open] .faq-answer{animation:faqOpen .2s ease}
   transition:background .2s,transform .2s;
 }
 .line-form-banner:hover{background:#05a547;transform:translateY(-2px)}
-.line-form-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%}
+.line-form-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;background:#fff;border-radius:50%;padding:2px}
+.line-form-icon img{width:100%;height:100%;object-fit:contain;border-radius:50%}
 .line-form-text{display:flex;flex-direction:column;gap:2px}
 .line-form-title{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .line-form-sub{font-size:12px;opacity:.85}
