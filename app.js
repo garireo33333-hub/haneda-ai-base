@@ -848,10 +848,29 @@ form?.addEventListener('submit', (e) => {
 
   submitBtn.disabled = true;
   submitBtn.innerHTML = '送信中...';
-  setTimeout(() => {
-    form.querySelectorAll('.form-row, .form-group, .form-check, .btn-submit').forEach(el => el.style.display = 'none');
-    successBox.classList.add('show');
-  }, 800);
+
+  const data = new FormData(form);
+  data.append('access_key', '50a823fd-d266-44b6-8cfe-99cccfb22496');
+  data.append('subject', '【お問い合わせ】HANEDA AI BASE ホームページより');
+  data.append('from_name', 'HANEDA AI BASE フォーム');
+
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+    .then(res => res.json())
+    .then(json => {
+      if (json.success) {
+        form.querySelectorAll('.form-row, .form-group, .form-check, .btn-submit').forEach(el => el.style.display = 'none');
+        successBox.classList.add('show');
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '送信する';
+        alert('送信に失敗しました。お手数ですが、しばらくしてから再度お試しください。');
+      }
+    })
+    .catch(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '送信する';
+      alert('送信に失敗しました。ネットワーク接続をご確認ください。');
+    });
 });
 
 // Live clear of invalid state
