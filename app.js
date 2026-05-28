@@ -849,6 +849,20 @@ form?.addEventListener('submit', (e) => {
   submitBtn.disabled = true;
   submitBtn.innerHTML = '送信中...';
 
+  // GAS: 自動返信メール + Sheets記録（fire-and-forget）
+  fetch('https://script.google.com/macros/s/AKfycbzdNw-a-wPNQijc8-Jh6EbwrDiQDLtzReVTTYCU2InZYVbiQt-1BvTohOxOevOBjjxAew/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify({
+      name: form.querySelector('[name="name"]').value.trim(),
+      company: form.querySelector('[name="company"]').value.trim(),
+      phone: form.querySelector('[name="phone"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      message: form.querySelector('[name="message"]').value.trim(),
+    }),
+  }).catch(() => {});
+
   const data = new FormData(form);
   data.append('access_key', '50a823fd-d266-44b6-8cfe-99cccfb22496');
   data.append('subject', '【お問い合わせ】HANEDA AI BASE ホームページより');
