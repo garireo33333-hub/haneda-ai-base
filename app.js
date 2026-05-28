@@ -44,6 +44,7 @@ const icons = {
   pin: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22 s-7-7-7-13 a7 7 0 0 1 14 0 c0 6 -7 13 -7 13 z"/><circle cx="12" cy="9" r="2.5"/></svg>',
   home: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 L12 3 L21 10 V20 a1 1 0 0 1 -1 1 H4 a1 1 0 0 1 -1 -1 Z"/></svg>',
   family: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20 v-1 a5 5 0 0 1 10 0 v1"/><path d="M14 20 v-1 a4 4 0 0 1 7 0 v1"/></svg>',
+  birth: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
   info: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.5" r=".7" fill="currentColor"/></svg>',
 };
 
@@ -586,7 +587,8 @@ main.innerHTML = `
         </div>
         <div class="profile-facts">
           <div class="profile-fact">${icons.pin}<span>大田区南蒲田3-15-29 在住</span></div>
-          <div class="profile-fact">${icons.family}<span>4人家族（子ども2人）</span></div>
+          <div class="profile-fact">${icons.birth}<span>1996年生まれ　満29歳</span></div>
+          <div class="profile-fact">${icons.family}<span>4人家族（娘2人）</span></div>
           <div class="profile-fact">${icons.home}<span>糀谷・雑色・大鳥居エリア対応</span></div>
         </div>
         <div class="profile-quote">
@@ -601,28 +603,28 @@ main.innerHTML = `
           <div class="timeline-org">工学系の基礎を実践ベースで習得</div>
         </div>
         <div class="timeline-item reveal d2">
-          <div class="timeline-period">2010s前半</div>
-          <h4 class="timeline-title">自動車エンジンの研究開発</h4>
+          <div class="timeline-period">2017年</div>
           <div class="timeline-org">株式会社SUBARU</div>
+          <h4 class="timeline-title">自動車エンジンの研究開発</h4>
           <p class="timeline-desc">大手メーカーの開発現場で、品質と数字に向き合う仕事を経験。ものづくりの現場感覚を養う。</p>
         </div>
         <div class="timeline-item reveal d3">
-          <div class="timeline-period">2010s後半</div>
-          <h4 class="timeline-title">マーケティング事業部 部長</h4>
+          <div class="timeline-period">2019年</div>
           <div class="timeline-org">CrossGroup株式会社</div>
+          <h4 class="timeline-title">マーケティング事業部 部長</h4>
           <p class="timeline-desc">投資教育Webコンテンツのマーケを統括。SEO・LP・アフィリエイト等を一気通貫で運用。</p>
           <span class="timeline-highlight">★ 統括売上 28億円</span>
         </div>
         <div class="timeline-item reveal d2">
-          <div class="timeline-period">2020s前半</div>
-          <h4 class="timeline-title">Web広告 責任者</h4>
+          <div class="timeline-period">2023年</div>
           <div class="timeline-org">株式会社RIZAP</div>
+          <h4 class="timeline-title">デジタル広告 事業責任者</h4>
           <p class="timeline-desc">RIZAP / Chocozap 両事業の Web 広告を担当。大規模予算での運用と検証を経験。</p>
         </div>
         <div class="timeline-item reveal d3">
           <div class="timeline-period">現在</div>
-          <h4 class="timeline-title">ECモール / CRM / 新規事業 / AIDX事業 責任者</h4>
           <div class="timeline-org">OrganicGroup株式会社</div>
+          <h4 class="timeline-title">ECモール / CRM / 新規事業 / AIDX事業 責任者</h4>
           <p class="timeline-desc">複数事業を横断し、AIを使った業務改革（AIDX）を実践。本業で培ったノウハウを、大田区の中小企業に還元します。</p>
         </div>
       </div>
