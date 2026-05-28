@@ -139,7 +139,14 @@ section{padding:100px 0;position:relative}
   .site-nav.open{transform:translateY(0)}
   .site-nav a:not(.btn){padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#fff}
   .nav-cta{margin-top:16px;justify-content:center}
-  .nav-line{margin-top:8px;justify-content:center}
+  .site-nav .nav-line{
+    display:flex;width:100%;margin-top:8px;
+    background:#06C755;color:#fff;
+    border-radius:10px;padding:14px 18px;
+    justify-content:center;align-items:center;gap:8px;
+    font-size:14px;font-weight:700;
+    border:none;
+  }
   .site-header.scrolled .site-nav{background:#fff}
   .site-header.scrolled .site-nav a:not(.btn){border-color:var(--line)}
 }
