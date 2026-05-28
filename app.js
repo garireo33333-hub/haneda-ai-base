@@ -54,7 +54,7 @@ main.innerHTML = `
   <div class="container">
     <div class="problems-head reveal">
       <div class="section-eyebrow">VOICE FROM 大田区</div>
-      <h2 class="section-title">こんなお悩み、<br /><span class="accent">ありませんか？</span></h2>
+      <h2 class="section-title">こんなお悩みを、<br /><span class="accent">よく聞きます。</span></h2>
       <p class="problems-lead">
         運送・建築・製造といった現場仕事ほど、AIで一気に効率化できる余地が眠っています。<br />
         まずは「うちだったら何が効率化できるのか」を、私と一緒に整理しましょう。
