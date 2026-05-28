@@ -500,3 +500,25 @@ details.faq-item[open] .faq-answer{animation:faqOpen .2s ease}
 @media (max-width:768px){
   .footer-grid{grid-template-columns:1fr;gap:32px}
 }
+
+/* ============ LINE form banner ============ */
+.line-form-banner{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 20px;margin-bottom:4px;
+  background:#06C755;border-radius:14px;
+  color:#fff;text-decoration:none;
+  transition:background .2s,transform .2s;
+}
+.line-form-banner:hover{background:#05a547;transform:translateY(-2px)}
+.line-form-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%}
+.line-form-text{display:flex;flex-direction:column;gap:2px}
+.line-form-title{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.line-form-sub{font-size:12px;opacity:.85}
+.line-form-arrow{margin-left:auto;opacity:.8;flex-shrink:0}
+.line-form-divider{display:flex;align-items:center;gap:12px;margin:18px 0 12px;color:rgba(255,255,255,.4);font-size:12px}
+.line-form-divider::before,.line-form-divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+
+@media (max-width:600px){
+  .line-form-banner{padding:14px 16px;gap:12px}
+  .line-form-title{font-size:15px}
+}
