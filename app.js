@@ -337,7 +337,7 @@ main.innerHTML = `
         <span class="benefit-num">REASON 01</span>
         <div class="benefit-icon">${icons.shield}</div>
         <h3 class="benefit-name">企業に依頼するより10分の1のコストに抑えられる</h3>
-        <p class="benefit-desc">副業スタイルだからこそ、大手コンサルの10分の1の費用で対応可能。料金は押しつけず、対話の中で一緒に決めていきます。</p>
+        <p class="benefit-desc">個人事業スタイルだからこそ、大手コンサルの10分の1の費用で対応可能。料金は押しつけず、対話の中で一緒に決めていきます。</p>
         <img src="images/benefit-deal.svg" class="benefit-illust" alt="" aria-hidden="true" />
         <span class="benefit-tag">予算ベースで相談OK</span>
       </div>
@@ -575,7 +575,7 @@ main.innerHTML = `
     <div style="margin-bottom:56px;max-width:680px" class="reveal">
       <div class="section-eyebrow" style="color:#7DD8FF">REPRESENTATIVE</div>
       <h2 class="section-title">大田区に住む、<br /><span style="color:#00BFFF">あなたの会社のAI担当。</span></h2>
-      <p class="section-lead">大手企業で身につけた知見を、地元の中小企業に還元したい。<br />そんな思いで、副業スタイルの事業を立ち上げました。</p>
+      <p class="section-lead">大手企業で身につけた知見を、地元の中小企業に還元したい。<br />そんな思いで、個人事業スタイルの事業を立ち上げました。</p>
     </div>
 
     <div class="profile-inner">
@@ -660,10 +660,10 @@ main.innerHTML = `
 
       <details class="faq-item reveal">
         <summary>
-          <span class="faq-q-text">副業スタイルとのことですが、対応の質は大丈夫ですか？</span>
+          <span class="faq-q-text">個人事業スタイルとのことですが、対応の質は大丈夫ですか？</span>
           <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </summary>
-        <p class="faq-answer">対応はすべて代表が直接行います。「担当が変わって毎回説明し直し」ということがなく、一貫したサポートが受けられます。副業スタイルだからこそ固定費を抑えた低価格でご提供でき、本業でのAIDX実務経験をそのままお届けします。</p>
+        <p class="faq-answer">対応はすべて代表が直接行います。「担当が変わって毎回説明し直し」ということがなく、一貫したサポートが受けられます。個人事業スタイルだからこそ固定費を抑えた低価格でご提供でき、本業でのAIDX実務経験をそのままお届けします。</p>
       </details>
 
       <details class="faq-item reveal">
