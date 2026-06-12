@@ -580,10 +580,10 @@ main.innerHTML = `
 
     <div class="profile-inner">
       <aside class="profile-card reveal d1">
-        <div class="profile-portrait"><img src="images/profile.jpg" alt="三反﨑 港人" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" /></div>
+        <div class="profile-portrait"><img src="images/profile.jpg" alt="Minato Mitasaki" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" /></div>
         <div class="profile-name-block">
           <div class="profile-role">代表 / Founder</div>
-          <h3 class="profile-name">三反﨑 港人<span class="profile-name-roman">Mitasaki Minato</span><small>HANEDA AI BASE 代表</small></h3>
+          <h3 class="profile-name">Minato Mitasaki<small>HANEDA AI BASE 代表</small></h3>
         </div>
         <div class="profile-facts">
           <div class="profile-fact">${icons.pin}<span>大田区南蒲田3-15-29 在住</span></div>
