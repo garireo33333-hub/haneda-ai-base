@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /demo-nippo.html
+Disallow: /demo-hojogkin.html
+
+Sitemap: https://haneda.ai-base.jp/sitemap.xml
