@@ -253,7 +253,7 @@ main.innerHTML = `
           <span class="number-unit">億円+</span>
         </div>
         <div class="number-label">マーケ統括売上実績</div>
-        <div class="number-sub">CrossGroup・RIZAP・<br />OrganicGroup累計</div>
+        <div class="number-sub">CrossGroup・RIZAP・<br />Organic累計</div>
       </div>
       <div class="number-item reveal d4">
         <div class="number-val">
@@ -624,7 +624,7 @@ main.innerHTML = `
         </div>
         <div class="timeline-item reveal d3">
           <div class="timeline-period">現在</div>
-          <h4 class="timeline-title">OrganicGroup株式会社</h4>
+          <h4 class="timeline-title">Organic株式会社</h4>
           <div class="timeline-org">ECモール / CRM / 新規事業 / AIDX事業 責任者</div>
           <p class="timeline-desc">複数事業を横断し、AIを使った業務改革（AIDX）を実践。本業で培ったノウハウを、大田区の中小企業に還元します。</p>
           <span class="timeline-highlight">★ 統括売上 20億円</span>
