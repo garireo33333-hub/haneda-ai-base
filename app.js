@@ -119,7 +119,7 @@ main.innerHTML = `
           <li>予算配分と入札の調整、応募数の週次チェック</li>
           <li>応募後の連絡・面接設定の流れづくり</li>
         </ul>
-        <a href="#contact" class="service-link">採用の相談をする <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="indeed.html" class="service-link">Indeed支援の詳細ページへ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="service-card sub reveal d4">
         <img src="images/service-blocks.svg" class="service-illust-sub" alt="" aria-hidden="true" />
@@ -200,7 +200,7 @@ main.innerHTML = `
           <div class="itab-kv-left">
             <h3 class="itab-panel-title">Indeed採用で<br />変わること</h3>
             <p class="itab-panel-lead">Indeed・AirWorkで「掲載しているのに応募が来ない」を変えます。原稿・職種設定・予算配分を見直し、応募単価を下げながら応募数を増やします。</p>
-            <a href="#contact" class="btn btn-primary">採用を相談する</a>
+            <a href="indeed.html" class="btn btn-primary">Indeed支援の詳細を見る</a>
           </div>
           <div class="itab-kv-right">
             <div class="itab-stat-cards">
@@ -821,7 +821,7 @@ footerMount.innerHTML = `
         <ul>
           <li><a href="#services">AIコンサル</a></li>
           <li><a href="#services">広告運用・マーケ支援</a></li>
-          <li><a href="#services">Indeed採用支援</a></li>
+          <li><a href="indeed.html">Indeed採用支援</a></li>
           <li><a href="#profit">補助金・助成金の活用</a></li>
         </ul>
       </div>
