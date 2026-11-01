@@ -109,6 +109,8 @@ section{padding:100px 0;position:relative}
 .logo-text{display:flex;flex-direction:column;line-height:1.1}
 .logo-name{font-family:"Inter","Noto Sans JP",sans-serif;font-weight:800;color:#fff;font-size:17px;letter-spacing:-.01em;transition:color .3s}
 .logo-sub{font-size:10.5px;color:rgba(255,255,255,.55);letter-spacing:.05em;transition:color .3s;padding-left:12px;border-left:1px solid rgba(255,255,255,.2)}
+.logo-sub-short{display:none}
+@media (max-width:600px){.logo-sub-full{display:none}.logo-sub-short{display:inline}}
 .header-logo{height:36px;width:auto;display:block}
 .header-logo--dark{display:none}
 .site-header.scrolled .header-logo--light{display:none}

@@ -132,7 +132,7 @@
 .service-card.main .service-badge{background:rgba(0,191,255,.15);color:#7DD8FF;border-color:rgba(0,191,255,.3)}
 .service-card.sub{grid-column:span 3}
 @media (min-width:921px){
-  .services-grid > .service-card.sub:nth-of-type(n+3){grid-column:span 2}
+  .services-grid > .service-card.sub:nth-of-type(n+3){grid-column:span 3}
 }
 
 .service-icon{
@@ -154,6 +154,11 @@
 .service-name{font-size:22px;font-weight:800;color:var(--navy);position:relative;z-index:1}
 .service-card.main .service-name{font-size:28px}
 .service-desc{font-size:14.5px;color:var(--text-soft);line-height:1.85;position:relative;z-index:1;flex:1}
+.service-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;position:relative;z-index:1}
+.service-list li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.6;color:var(--navy);font-weight:500}
+.service-list li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:#00BFFF;margin-top:8px}
+.service-card.main .service-list li{color:rgba(255,255,255,.88)}
+.service-card.main .service-list li::before{background:#7DD8FF}
 .service-link{
   font-size:13px;font-weight:600;color:#0077B6;
   display:inline-flex;align-items:center;gap:6px;

@@ -24,11 +24,12 @@ const main = document.getElementById('main-content');
 const footerMount = document.getElementById('footer-mount');
 
 const problems = [
-  { icon: 'clock', text: '見積もりや日報など、手作業が多くて時間が足りない' },
   { icon: 'sparkles', text: 'AIって使えそうだけど、何から始めればいいかわからない' },
-  { icon: 'search', text: 'ホームページがなかなか検索に引っかからない' },
+  { icon: 'clock', text: '見積もりや日報など、手作業が多くて時間が足りない' },
   { icon: 'chart', text: 'Web広告をやっているが、効果が出ているのかよくわからない' },
-  { icon: 'yen', text: '大手のコンサルは高くて手が出ない' },
+  { icon: 'people', text: 'Indeedに求人を出しているのに、応募が来ない・採用につながらない' },
+  { icon: 'search', text: 'ホームページがなかなか検索に引っかからない' },
+  { icon: 'yen', text: '大手のコンサルや広告代理店は高くて手が出ない' },
 ];
 
 const icons = {
@@ -37,6 +38,7 @@ const icons = {
   search: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>',
   chart: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="20" x2="21" y2="20"/><rect x="6" y="12" width="3" height="8"/><rect x="11" y="7" width="3" height="13"/><rect x="16" y="14" width="3" height="6"/></svg>',
   yen: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4 L12 12 L18 4"/><line x1="12" y1="12" x2="12" y2="20"/><line x1="7" y1="14" x2="17" y2="14"/><line x1="7" y1="17" x2="17" y2="17"/></svg>',
+  people: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M2.5 20 v-1 a6.5 6.5 0 0 1 13 0 v1"/><path d="M15.5 20 v-1 a4.5 4.5 0 0 1 6 -4"/></svg>',
   shield: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 5 V11 C20 16.5 16.5 20.5 12 22 C7.5 20.5 4 16.5 4 11 V5 Z"/><polyline points="9 12 11 14 15 10"/></svg>',
   build: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3 a1 1 0 0 0 0 1.4 l1.6 1.6 a1 1 0 0 0 1.4 0 l3.77-3.77 a6 6 0 0 1 -7.94 7.94 l-6.91 6.91 a2.12 2.12 0 0 1 -3-3 l6.91-6.91 a6 6 0 0 1 7.94-7.94 z"/></svg>',
   bike: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6 a1 1 0 1 0 0-2 a1 1 0 1 0 0 2"/><path d="M12 17.5 V14 l-3-3 4-3 2 3 h2"/></svg>',
@@ -56,8 +58,8 @@ main.innerHTML = `
       <div class="section-eyebrow">VOICE FROM 大田区</div>
       <h2 class="section-title">こんなお悩みを、<br /><span class="accent">よく聞きます。</span></h2>
       <p class="problems-lead">
-        運送・建築・製造といった現場仕事ほど、AIで一気に効率化できる余地が眠っています。<br />
-        まずは「うちだったら何が効率化できるのか」を、私と一緒に整理しましょう。
+        業種は問いません。AI・広告・採用は、どれも「専任がいない会社」ほど伸びしろが大きい領域です。<br />
+        まずは「うちだったら何から変えられるか」を、私と一緒に整理しましょう。
       </p>
     </div>
 
@@ -79,150 +81,145 @@ main.innerHTML = `
     <div class="reveal" style="margin-bottom:64px">
       <div class="section-eyebrow">OUR SERVICES</div>
       <h2 class="section-title">「動くもの」まで、<span class="accent">一気通貫</span>で。</h2>
-      <p class="section-lead">提案して終わりではなく、実際に現場で使えるところまで作り切ります。AI・SEO・広告まで、必要な範囲だけ組み合わせてご提供します。</p>
+      <p class="section-lead">AI・広告・採用。中小企業が後回しにしがちな3つを、ひとりの担当が「動くところ」まで作り切ります。必要な軸だけ選んでいただけます。</p>
     </div>
-
     <div class="services-grid">
       <div class="service-card main reveal d1">
         <span class="service-badge">MAIN</span>
-        <img src="images/service-processing.svg" class="service-illust-sub" alt="" aria-hidden="true" />
-        <h3 class="service-name">AI業務効率化</h3>
-        <p class="service-desc">日報・見積・メール対応など、毎日の手作業をAIで自動化します。「うちで何が効率化できるか」を一緒に整理するところから始めるので、IT知識がなくても安心して導入できます。</p>
-        <a href="#contact" class="service-link">この内容で相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="service-card sub reveal d2">
         <img src="images/service-chat.svg" class="service-illust-sub" alt="" aria-hidden="true" />
-        <h3 class="service-name" style="font-size:28px">AIコンサルティング</h3>
-        <p class="service-desc">「AIって何から始めればいい？」その疑問から一緒に整理します。ChatGPT・Claudeなどのツール選定から、社内での使い方ルール、スタッフへの定着サポートまで、AI導入の全体を設計します。</p>
-        <a href="#contact" class="service-link">相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <h3 class="service-name">AIコンサル</h3>
+        <p class="service-desc">「AIで何ができるのか」の整理から、ChatGPT・Claudeなどのツール選定、日報・見積・メール対応の自動化、実際に動くAIツールの構築、スタッフへの定着まで。提案書で終わらせず、現場で毎日使われる状態まで持っていきます。IT知識がなくても大丈夫です。</p>
+        <ul class="service-list">
+          <li>業務の棚卸しと「AI化する順番」の整理</li>
+          <li>ChatGPT・Claude などの導入と社内ルールづくり</li>
+          <li>日報・見積・報告書・問い合わせ対応の自動化ツール構築</li>
+          <li>スタッフ研修と定着までの伴走</li>
+        </ul>
+        <a href="#contact" class="service-link">AIの相談をする <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
+      <div class="service-card sub reveal d2">
+        <img src="images/service-marketing.svg" class="service-illust-sub" alt="" aria-hidden="true" />
+        <h3 class="service-name">広告運用軸のマーケ支援</h3>
+        <p class="service-desc">Google・Meta広告の運用代行を軸に、LP改善・MEO・SEOまで組み合わせて「広告費が問い合わせに変わる」導線を作ります。RIZAP・CrossGroupで28億円規模のマーケを統括した経験を、中小企業の予算規模に合わせて使います。「自分でやってみたけど効果が出ない」という会社こそ、一度ご相談ください。</p>
+        <ul class="service-list">
+          <li>Google・Meta広告の設計・運用・改善</li>
+          <li>LP・HPの改善で問い合わせ率を上げる</li>
+          <li>MEO・SEOで「地域名＋業種」の検索上位を狙う</li>
+          <li>月次レポートで数字を見える化</li>
+        </ul>
+        <a href="#contact" class="service-link">広告・集客の相談をする <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
       <div class="service-card sub reveal d3">
         <img src="images/service-search.svg" class="service-illust-sub" alt="" aria-hidden="true" />
-        <h3 class="service-name">SEO / MEO対策</h3>
-        <p class="service-desc">「地域名＋業種」で検索した時に上位に出てくる会社を目指します。GoogleマップのMEO対策とサイトのSEO対策をセットで実施。AIを使ったコンテンツ制作で更新コストも抑えます。</p>
-        <a href="#contact" class="service-link">相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <h3 class="service-name">Indeedの採用支援</h3>
+        <p class="service-desc">Indeed・AirWorkを中心に、求人原稿の作成から掲載設定、応募単価の改善、応募数の分析まで。「掲載しているのに応募が来ない」の原因は、ほとんどが原稿・職種設定・予算配分のどれかにあります。そこを一緒に直して、応募が来る求人に変えます。</p>
+        <ul class="service-list">
+          <li>求人原稿の作成・リライト（職種名・見出し・本文）</li>
+          <li>職種設定・掲載設定の見直しで応募単価を下げる</li>
+          <li>予算配分と入札の調整、応募数の週次チェック</li>
+          <li>応募後の連絡・面接設定の流れづくり</li>
+        </ul>
+        <a href="#contact" class="service-link">採用の相談をする <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
-      <div class="service-card sub reveal d2">
-        <img src="images/service-website.svg" class="service-illust-sub" alt="" aria-hidden="true" />
-        <h3 class="service-name">HP・LP制作</h3>
-        <p class="service-desc">まだHPがない、または古くなっている会社向けに、AIを活用した制作で低コスト・短納期を実現。スマホ対応・問合せフォームも標準で含みます。</p>
-        <a href="#contact" class="service-link">相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
-      <div class="service-card sub reveal d3">
-        <img src="images/service-marketing.svg" class="service-illust-sub" alt="" aria-hidden="true" />
-        <h3 class="service-name">広告運用・マーケ戦略</h3>
-        <p class="service-desc">RIZAP・CrossGroupでの28億円規模のマーケ実績をもとに、Google・Meta広告の運用代行や集客戦略を提案。「やってみたけど効果が出ない」という会社こそ、一度見直しましょう。</p>
-        <a href="#contact" class="service-link">相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-
       <div class="service-card sub reveal d4">
         <img src="images/service-blocks.svg" class="service-illust-sub" alt="" aria-hidden="true" />
         <h3 class="service-name">組み合わせ自由</h3>
-        <p class="service-desc">「まず何から始めればいいかわからない」という方に最適です。相談しながら必要なサービスだけ選んでOK。最初の1ステップを一緒に決めましょう。</p>
+        <p class="service-desc">「まず何から始めればいいかわからない」という方に最適です。AI・広告・採用のどれか1つだけでも、組み合わせてもOK。相談しながら必要なものだけ選んで、最初の1ステップを一緒に決めましょう。</p>
+        <ul class="service-list">
+          <li>1つの軸だけの単独依頼もOK</li>
+          <li>予算に合わせて範囲を調整</li>
+          <li>まずは無料相談で現状整理</li>
+        </ul>
         <a href="#contact" class="service-link">相談する <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- Industry AI Tab -->
+<!-- Axis Tab (3 pillars) -->
 <section class="industry-tab" id="industry-tab">
   <div class="container">
     <div class="industry-tab-head reveal">
-      <div class="section-eyebrow">INDUSTRY × AI</div>
-      <h2 class="section-title">業種別 AI 活用メニュー</h2>
-      <p class="section-lead">あなたの業種を選んでください。具体的に何が変わるかをご確認いただけます。</p>
+      <div class="section-eyebrow">3 PILLARS</div>
+      <h2 class="section-title">3つの軸で、具体的に何が変わるか</h2>
+      <p class="section-lead">気になる軸を選んでください。業種は問いません。</p>
     </div>
-
     <div class="itab-nav reveal">
-      <button class="itab-btn active" data-tab="unso">🚛 運送・物流業</button>
-      <button class="itab-btn" data-tab="kensetsu">🏗️ 建設・リフォーム業</button>
-      <button class="itab-btn" data-tab="shigyo">🏛️ 士業</button>
+      <button class="itab-btn active" data-tab="ai">🤖 AIコンサル</button>
+      <button class="itab-btn" data-tab="ads">📣 広告・集客</button>
+      <button class="itab-btn" data-tab="hire">👥 Indeed採用</button>
     </div>
-
     <div class="itab-panels">
-
-      <div class="itab-panel active" data-panel="unso">
+      <div class="itab-panel active" data-panel="ai">
         <div class="itab-kv">
           <div class="itab-kv-left">
-            <h3 class="itab-panel-title">運送・物流業の<br />AIで変わること</h3>
-            <p class="itab-panel-lead">日報・アルコールチェック・配送管理など、毎日の繰り返し作業を大幅に削減できます。LINEだけで完結するので現場でもすぐ使えます。</p>
-            <p class="itab-case">📌 相模石油：配車計画AI化で担当者の16時間/日の作業がほぼゼロに</p>
-            <a href="#contact" class="btn btn-primary">運送業の導入を相談する</a>
+            <h3 class="itab-panel-title">AIコンサルで<br />変わること</h3>
+            <p class="itab-panel-lead">日報・見積・報告書・問い合わせ対応など、毎日の繰り返し作業を減らします。LINEやスマホだけで完結する形にするので、現場でもすぐ使えます。</p>
+            <p class="itab-case">📌 運送業（従業員30名）：日報作成 30分→5分、月約50時間を削減</p>
+            <a href="#contact" class="btn btn-primary">AI活用を相談する</a>
           </div>
           <div class="itab-kv-right">
             <div class="itab-stat-cards">
               <div class="itab-stat"><span class="itab-stat-num">-80<small>%</small></span><span class="itab-stat-label">日報作成時間</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">0<small>件</small></span><span class="itab-stat-label">紙の記録ミス</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">-15<small>%</small></span><span class="itab-stat-label">配送コスト</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">1<small>時間以内</small></span><span class="itab-stat-label">見積書作成（半日→）</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">24<small>h</small></span><span class="itab-stat-label">問い合わせBot自動対応</span></div>
             </div>
           </div>
         </div>
         <div class="itab-items">
-          <div class="itab-item"><div class="itab-item-tag">日報</div><div class="itab-item-body"><strong>LINEで30秒入力 → 日報・点呼記録を自動生成</strong><br /><span>手書き廃止・スマホだけで完結。IT知識不要。</span></div><div class="itab-item-badge">時間 <b>-80%</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">法令対応</div><div class="itab-item-body"><strong>アルコールチェック記録のデジタル化・法令対応</strong><br /><span>2023年義務化に完全対応。監査リスクをゼロに。</span></div><div class="itab-item-badge">紙管理 <b>ゼロ</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">配送最適化</div><div class="itab-item-body"><strong>AIルート最適化で燃料・配送コストを削減</strong><br /><span>日本郵便の事例では再配達率が20%削減。</span></div><div class="itab-item-badge">コスト <b>-15%</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">仕分け</div><div class="itab-item-body"><strong>画像AIで仕分け・品質チェックを自動化</strong><br /><span>佐川急便の事例では作業時間40%短縮・精度99.5%以上。</span></div><div class="itab-item-badge">作業 <b>-40%</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">日報</div><div class="itab-item-body"><strong>LINEで30秒入力 → 日報・報告書を自動生成</strong><br /><span>手書き・パソコン入力をなくし、スマホだけで完結。IT知識は不要です。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">見積</div><div class="itab-item-body"><strong>案件内容を入力するだけで見積書ドラフトを作成</strong><br /><span>過去の見積を学習させて、毎回ゼロから書く時間をなくします。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">問い合わせ</div><div class="itab-item-body"><strong>定型質問をチャットBotが24時間対応</strong><br /><span>「料金は？」「対応エリアは？」などの繰り返し回答を自動化します。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">書類</div><div class="itab-item-body"><strong>紙・PDFをOCRでデータ化して検索できる状態に</strong><br /><span>探す・転記する作業を減らし、必要な書類がすぐ出てきます。</span></div></div>
         </div>
       </div>
-
-      <div class="itab-panel" data-panel="kensetsu">
+      <div class="itab-panel" data-panel="ads">
         <div class="itab-kv">
           <div class="itab-kv-left">
-            <h3 class="itab-panel-title">建設・リフォーム業の<br />AIで変わること</h3>
-            <p class="itab-panel-lead">写真を撮るだけで報告書が完成。見積書もAIが初稿を作成。現場の安全管理もカメラが自動検知。現場担当者の事務負担を一気に削減します。</p>
-            <p class="itab-case">📌 大手建設法人：許認可書類の作成工数を70%削減</p>
-            <a href="#contact" class="btn btn-primary">建設業の導入を相談する</a>
+            <h3 class="itab-panel-title">広告・集客で<br />変わること</h3>
+            <p class="itab-panel-lead">「広告費を使っているのに問い合わせが増えない」を、数字を見ながら直します。広告だけでなく、受け皿になるLP・HP・Googleマップまでセットで改善します。</p>
+            <p class="itab-case">📌 小売業（従業員6名）：広告費用対効果 1.8倍→4.2倍、EC売上 +68%</p>
+            <a href="#contact" class="btn btn-primary">広告・集客を相談する</a>
           </div>
           <div class="itab-kv-right">
             <div class="itab-stat-cards">
-              <div class="itab-stat"><span class="itab-stat-num">1/3<small>以下</small></span><span class="itab-stat-label">書類作成時間</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">-70<small>%</small></span><span class="itab-stat-label">許認可書類工数</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">即時<small></small></span><span class="itab-stat-label">安全装備検知</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">2.3<small>倍</small></span><span class="itab-stat-label">広告費用対効果の改善（1.8→4.2倍）</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">0→11<small>件/月</small></span><span class="itab-stat-label">Web経由の新規予約</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">毎月<small></small></span><span class="itab-stat-label">レポートで数字を共有</span></div>
             </div>
           </div>
         </div>
         <div class="itab-items">
-          <div class="itab-item"><div class="itab-item-tag">報告書</div><div class="itab-item-body"><strong>現場写真を送るだけで工事報告書を自動生成</strong><br /><span>スマホで撮影 → LINEで送信 → 報告書PDF完成。</span></div><div class="itab-item-badge">作成時間 <b>1/3以下</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">見積書</div><div class="itab-item-body"><strong>工事内容を入力するだけで見積書ドラフトを自動作成</strong><br /><span>過去データから学習。週数時間の見積作業を大幅削減。</span></div><div class="itab-item-badge">見積工数 <b>大幅削減</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">安全管理</div><div class="itab-item-body"><strong>AIカメラで安全装備の未着用・危険行動を即検知</strong><br /><span>ヒヤリハット記録を自動化。コンプライアンス対応も。</span></div><div class="itab-item-badge">検知 <b>リアルタイム</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">議事録</div><div class="itab-item-body"><strong>打合せの議事録・報告書をAIが自動生成・共有</strong><br /><span>会議後の書き起こし作業がゼロに。</span></div><div class="itab-item-badge">事務作業 <b>削減</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">広告運用</div><div class="itab-item-body"><strong>Google・Meta広告の設計・運用・改善を代行</strong><br /><span>ターゲット・配信・予算配分を毎週見直し、無駄なクリックを減らします。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">LP改善</div><div class="itab-item-body"><strong>広告の受け皿を直して問い合わせ率を上げる</strong><br /><span>同じ広告費でも、ページが変わると問い合わせ数が変わります。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">MEO・SEO</div><div class="itab-item-body"><strong>Googleマップと検索で「地域名＋業種」の上位を狙う</strong><br /><span>口コミ・投稿・基本情報を整え、地域で探している人に見つけてもらいます。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">レポート</div><div class="itab-item-body"><strong>何にいくら使って何件来たかを毎月見える化</strong><br /><span>「効果が出ているのか分からない」をなくし、次の一手を一緒に決めます。</span></div></div>
         </div>
       </div>
-
-      <div class="itab-panel" data-panel="shigyo">
+      <div class="itab-panel" data-panel="hire">
         <div class="itab-kv">
           <div class="itab-kv-left">
-            <h3 class="itab-panel-title">士業（行政書士・税理士など）の<br />AIで変わること</h3>
-            <p class="itab-panel-lead">申請書・補助金書類の初稿作成、定型問い合わせへの自動対応。手を動かすべき仕事に集中できる環境をつくります。</p>
-            <p class="itab-case">📌 中小事務所：月400時間 → 50時間（88%削減）</p>
-            <a href="#contact" class="btn btn-primary">士業の導入を相談する</a>
+            <h3 class="itab-panel-title">Indeed採用で<br />変わること</h3>
+            <p class="itab-panel-lead">Indeed・AirWorkで「掲載しているのに応募が来ない」を変えます。原稿・職種設定・予算配分を見直し、応募単価を下げながら応募数を増やします。</p>
+            <a href="#contact" class="btn btn-primary">採用を相談する</a>
           </div>
           <div class="itab-kv-right">
             <div class="itab-stat-cards">
-              <div class="itab-stat"><span class="itab-stat-num">-70<small>%</small></span><span class="itab-stat-label">書類作成工数</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">30<small>分</small></span><span class="itab-stat-label">事業計画書ドラフト</span></div>
-              <div class="itab-stat"><span class="itab-stat-num">24h<small></small></span><span class="itab-stat-label">Bot自動対応</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">原稿<small></small></span><span class="itab-stat-label">職種名・見出し・本文を書き直す</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">設定<small></small></span><span class="itab-stat-label">職種・掲載設定を見直す</span></div>
+              <div class="itab-stat"><span class="itab-stat-num">予算<small></small></span><span class="itab-stat-label">クリック単価と配分を調整する</span></div>
             </div>
           </div>
         </div>
         <div class="itab-items">
-          <div class="itab-item"><div class="itab-item-tag">申請書</div><div class="itab-item-body"><strong>許認可・補助金申請書のドラフトをAIが自動生成</strong><br /><span>初稿作成の時間を60〜70%削減。確認・修正に集中できる。</span></div><div class="itab-item-badge">書類作成 <b>-70%</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">補助金</div><div class="itab-item-body"><strong>補助金申請の事業計画書ドラフトを30分以内に作成</strong><br /><span>2〜3時間かかっていた作業が30分に短縮。</span></div><div class="itab-item-badge">2〜3時間 → <b>30分</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">問い合わせ</div><div class="itab-item-body"><strong>定型的な問い合わせをチャットBotが24時間自動対応</strong><br /><span>「料金は？」「必要書類は？」を自動回答。電話が減る。</span></div><div class="itab-item-badge">対応時間 <b>大幅削減</b></div></div>
-          <div class="itab-item"><div class="itab-item-tag">書類整理</div><div class="itab-item-body"><strong>紙資料・PDFをOCRでデータ化し自動分類・検索</strong><br /><span>書類整理がほぼ自動化。必要な書類がすぐ見つかる。</span></div><div class="itab-item-badge">整理作業 <b>ほぼ自動</b></div></div>
+          <div class="itab-item"><div class="itab-item-tag">原稿</div><div class="itab-item-body"><strong>「検索されて、読まれて、応募される」原稿に書き直す</strong><br /><span>職種名・見出し・本文の3点を、求職者が検索する言葉に合わせます。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">設定</div><div class="itab-item-body"><strong>職種・勤務地・掲載方法を見直して無駄なクリックを減らす</strong><br /><span>合わない人のクリックに払っている費用を止めます。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">予算</div><div class="itab-item-body"><strong>クリック単価と予算配分を調整し、応募単価を下げる</strong><br /><span>反応の良い原稿に予算を寄せ、応募1件あたりのコストを下げます。</span></div></div>
+          <div class="itab-item"><div class="itab-item-tag">分析</div><div class="itab-item-body"><strong>応募数・単価・原稿別の反応を週次でチェック</strong><br /><span>数字を見て原稿と設定を直す、を毎週回します。</span></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- Numbers -->
 <section class="numbers" id="numbers">
   <div class="container">
@@ -272,8 +269,8 @@ main.innerHTML = `
   <div class="container">
     <div class="profit-head reveal">
       <div class="section-eyebrow">OUR APPROACH</div>
-      <h2 class="section-title">「削る」と「増やす」で、<br /><span class="accent">利益を最大化</span>する。</h2>
-      <p class="section-lead">HANEDA AI BASEが大切にする2つのアプローチ。コスト削減で手残りを増やし、マーケティングで売上を伸ばす——この両輪から、あなたの会社の利益を底上げします。</p>
+      <h2 class="section-title">「削る」「増やす」「採る」で、<br /><span class="accent">会社を強く</span>する。</h2>
+      <p class="section-lead">HANEDA AI BASEが大切にする3つのアプローチ。AIでコストを削って手残りを増やし、広告で売上を伸ばし、採用で回る会社にする。この3つから、あなたの会社の利益と体力を底上げします。</p>
     </div>
 
     <div class="profit-grid">
@@ -297,15 +294,28 @@ main.innerHTML = `
         <div class="profit-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <h3 class="profit-title">集客・転換率を改善して、<br />売上を伸ばす</h3>
-        <p class="profit-desc">MEO・SEO・広告でお客様が来る仕組みを作り、HPやLPの改善で問い合わせを増やします。集客から成約まで、マーケティング全体を一緒に設計します。</p>
+        <h3 class="profit-title">広告で集客して、<br />売上を伸ばす</h3>
+        <p class="profit-desc">Google・Meta広告でお客様が来る仕組みを作り、LP・HPの改善で問い合わせを増やします。MEO・SEOも組み合わせ、集客から成約までを一緒に設計します。</p>
         <ul class="profit-items">
-          <li>MEO・SEOで地域検索の上位表示</li>
-          <li>HP・LP改善で問い合わせ・予約を増加</li>
           <li>Google・Meta広告で費用対効果を最大化</li>
+          <li>LP・HP改善で問い合わせ・予約を増加</li>
+          <li>MEO・SEOで地域検索の上位表示</li>
         </ul>
       </div>
 
+      <div class="profit-card hire reveal d3">
+        <div class="profit-card-label">APPROACH 03</div>
+        <div class="profit-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M2.5 20 v-1 a6.5 6.5 0 0 1 13 0 v1"/><path d="M15.5 20 v-1 a4.5 4.5 0 0 1 6 -4"/></svg>
+        </div>
+        <h3 class="profit-title">人を採って、<br />回る会社にする</h3>
+        <p class="profit-desc">Indeed・AirWorkの求人を見直し、応募が来る状態を作ります。原稿・設定・予算の3点を整えて応募単価を下げ、面接までつながる流れを一緒に作ります。</p>
+        <ul class="profit-items">
+          <li>Indeed・AirWorkの求人原稿を作成・改善</li>
+          <li>職種設定と予算配分で応募単価を下げる</li>
+          <li>応募数・単価を毎週チェックして改善</li>
+        </ul>
+      </div>
     </div>
 
     <div class="profit-subsidy reveal">
@@ -346,7 +356,7 @@ main.innerHTML = `
         <span class="benefit-num">REASON 02</span>
         <div class="benefit-icon">${icons.build}</div>
         <h3 class="benefit-name">相談・提案・実装まで、<br />全部やる</h3>
-        <p class="benefit-desc">提案資料を作って終わり、ではありません。AIで動くツールも、HPも、広告運用も、実際に「動くもの」まで一緒に作ります。</p>
+        <p class="benefit-desc">提案資料を作って終わり、ではありません。AIツールも、広告運用も、求人原稿も、実際に「動くもの」まで一緒に作ります。</p>
         <img src="images/benefit-cowork.svg" class="benefit-illust" alt="" aria-hidden="true" />
         <span class="benefit-tag">伴走型で実装まで</span>
       </div>
@@ -408,7 +418,7 @@ main.innerHTML = `
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg>
         </div>
         <h3 class="flow-step-title">開発</h3>
-        <p class="flow-step-desc">承認後、実際に動くものを作ります。AIツール・HP・広告設定まで、提案で終わらず「稼働する状態」まで完成させます。</p>
+        <p class="flow-step-desc">承認後、実際に動くものを作ります。AIツール・広告・求人の設定まで、提案で終わらず「稼働する状態」まで完成させます。</p>
       </div>
 
       <div class="flow-arrow" aria-hidden="true">
@@ -435,7 +445,7 @@ main.innerHTML = `
       <div class="lead-block">
         <div class="section-eyebrow">CASES & VOICES</div>
         <h2 class="section-title">導入事例・<span class="accent">お客様の声</span></h2>
-        <p class="section-lead" style="margin-bottom:0">現職でのAI支援実績から、一部をご紹介します。<br />運送・建築・製造など、現場仕事の会社への導入事例です。</p>
+        <p class="section-lead" style="margin-bottom:0">現職での支援実績から、一部をご紹介します。<br />業種を問わず、AI活用・広告・集客の事例です。</p>
       </div>
       <a href="#contact" class="btn btn-outline">無料相談はこちら</a>
     </div>
@@ -650,7 +660,7 @@ main.innerHTML = `
           <span class="faq-q-text">費用はどれくらいかかりますか？</span>
           <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </summary>
-        <p class="faq-answer">ご要望やご予算によって異なりますが、目安としてAIツール構築は5万円〜、HP制作は10万円〜、月額サポートは3万円〜でご対応しています。まずは無料相談でご要望をお聞きし、一緒に決めていきましょう。IT導入補助金を活用できれば、実質半額以下になるケースもあります。</p>
+        <p class="faq-answer">ご要望やご予算によって異なりますが、目安としてAIツール構築は5万円〜、HP制作は10万円〜、月額サポートは3万円〜でご対応しています。広告運用・Indeed運用は、広告費・掲載費とは別に月額でお見積りし、ご予算に合わせてご提案します。まずは無料相談でご要望をお聞きし、一緒に決めていきましょう。IT導入補助金を活用できれば、実質半額以下になるケースもあります。</p>
       </details>
 
       <details class="faq-item reveal">
@@ -674,7 +684,7 @@ main.innerHTML = `
           <span class="faq-q-text">相談から実装まで、どれくらいの期間がかかりますか？</span>
           <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </summary>
-        <p class="faq-answer">内容によりますが、AIツールは1〜3週間、HP制作は2〜4週間が目安です。「まず小さく試したい」という方には、1週間で動くプロトタイプをお見せする形でスタートすることもできます。</p>
+        <p class="faq-answer">内容によりますが、AIツールは1〜3週間、HP制作は2〜4週間、広告・求人は初期設定まで1〜2週間（効果の検証は1〜3ヶ月）が目安です。「まず小さく試したい」という方には、1週間で動くプロトタイプをお見せする形でスタートすることもできます。</p>
       </details>
 
       <details class="faq-item reveal">
@@ -685,6 +695,13 @@ main.innerHTML = `
         <p class="faq-answer">もちろんです。「話を聞いてみたかっただけ」でも大歓迎です。相談は完全無料で、その場で契約を求めることは一切ありません。「うちで何が効率化できるか」だけでも整理できれば、それだけで価値があると思っています。</p>
       </details>
 
+      <details class="faq-item reveal">
+        <summary>
+          <span class="faq-q-text">広告やIndeedの運用だけをお願いすることはできますか？</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </summary>
+        <p class="faq-answer">はい。AIコンサル・広告運用・Indeed採用はそれぞれ単独でもご依頼いただけます。「まず採用だけ」「広告だけ見直したい」という形で始めて、必要になったら他の軸を足す、という進め方で問題ありません。</p>
+      </details>
       <details class="faq-item reveal">
         <summary>
           <span class="faq-q-text">大田区外でも対応していただけますか？</span>
@@ -763,7 +780,7 @@ main.innerHTML = `
 
         <div class="form-group" data-field>
           <label>ご相談内容 <span class="req">必須</span></label>
-          <textarea name="message" required placeholder="例：日報のまとめに毎日2時間かかっていて、AIで効率化したい。何から始められるか相談したい。"></textarea>
+          <textarea name="message" required placeholder="例：Indeedで求人を出しているが応募が来ない。原稿や設定を見直したい。／広告をやっているが効果が見えない。／日報や見積の作業をAIで減らしたい。"></textarea>
           <span class="error">ご相談内容を入力してください</span>
         </div>
 
@@ -797,16 +814,15 @@ footerMount.innerHTML = `
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="images/logo-footer.png" alt="HANEDA AI BASE" class="footer-logo" />
-        <p class="footer-tag">東京都大田区の中小企業のための、AI活用パートナー。糀谷・雑色・大鳥居エリアを中心に、地元密着でサポートしています。</p>
+        <p class="footer-tag">東京都大田区の中小企業のための、AI・集客・採用のパートナー。糀谷・雑色・大鳥居エリアを中心に、地元密着でサポートしています。</p>
       </div>
       <div class="footer-col">
         <h4>SERVICES</h4>
         <ul>
-          <li><a href="#services">AI業務効率化</a></li>
-          <li><a href="#services">AIコンサルティング</a></li>
-          <li><a href="#services">SEO / MEO対策</a></li>
-          <li><a href="#services">HP・LP制作</a></li>
-          <li><a href="#services">広告運用・マーケ戦略</a></li>
+          <li><a href="#services">AIコンサル</a></li>
+          <li><a href="#services">広告運用・マーケ支援</a></li>
+          <li><a href="#services">Indeed採用支援</a></li>
+          <li><a href="#profit">補助金・助成金の活用</a></li>
         </ul>
       </div>
       <div class="footer-col">
